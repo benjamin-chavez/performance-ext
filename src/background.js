@@ -1,9 +1,10 @@
+import React, { useEffect } from 'react';
 console.log('background.js');
 
 const data = {};
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'performance:metric') {
-    console.log(request);
+    // console.log(request);
     const tab = sender.tab.url.toString();
 
     data[tab] = data[tab] || {};
@@ -16,10 +17,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     data[tab][name].values.push(request.value);
     data[tab][name].average =
-      data[tab][name].values.reduce(
-        (accumulator, value) => accumulator + value,
-        0
-      ) / data[tab][name].values.length;
-    console.log(data);
+      data[tab][name].values.reduce((accum, val) => accum + val, 0) /
+      data[tab][name].values.length;
+    // console.log(data);
+  }
+
+  if (request.type === 'performance:metric:request') {
+    sendResponse(data);
   }
 });

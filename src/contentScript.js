@@ -1,6 +1,15 @@
 // console.log('contentScript.js');
-import react from 'react';
+
 import { getTTFB, getLCP, getFID, getFCP, getCLS } from 'web-vitals';
+
+// import { InfluxDB, Point } from '@influxdata/influxdb-client-browser';
+
+const client = token
+  ? new InfluxDB({
+      url: 'https://us-west-2-1.aws.cloud2.influxdata.com',
+      token: token,
+    })
+  : null;
 
 const infoDiv = document.createElement('div');
 infoDiv.style.position = 'fixed';
