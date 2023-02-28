@@ -24,7 +24,6 @@
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
-    "@influxdata/influxdb-client-browser": "^1.33.2",
     "copy-webpack-plugin": "^6.3.1",
     "html-webpack-plugin": "^4.5.0",
     "react": "^16.13.0",

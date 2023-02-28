@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 console.log('background.js');
 
 const data = {};

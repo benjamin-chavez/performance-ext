@@ -15,7 +15,7 @@ const App = () => {
       },
       (d) => {
         dataSet(d);
-        console.log(d);
+        // console.log(d);
       }
     );
   }, []);
